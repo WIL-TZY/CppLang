@@ -1,0 +1,2 @@
+# Automatically detects text files and performs newline (LF) normalization.
+* text=auto

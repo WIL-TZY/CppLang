@@ -1,0 +1,21 @@
+In C++, the << character is known as the "left shift" operator. Meanwhile, the >> character is known as the "right shift" operator.
+
+They are used to perform bitwise shift operations on integral data types, such as integers. 
+
+These operators allow you to shift the bits of a binary representation of a number to the left or right.
+
+Left Shift (<<): This operator shifts the bits of a binary number to the left by a specified number of positions. 
+Right Shift (>>): This operator shifts the bits of a binary number to the right by a specified number of positions. 
+
+The format is: 
+value << n 
+Where value is the number you want to shift, and n is the number of positions to shift it to the left.
+
+The << operator is often used for tasks related to manipulating individual bits.
+A common task is performing efficient multiplication/division by powers of 2, and various low-level bit manipulation operations. 
+
+In the bitwise_operations.cpp file, there's an example using x = 5 (decimal) or 00000101 (binary).
+
+x is then shifted by the << operator 2 two positions to the left.
+
+This effectively multiplyes x by 2^2, resulting in the value 20 (decimal) or 00010100 (binary).

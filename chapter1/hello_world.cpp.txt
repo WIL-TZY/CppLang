@@ -1,0 +1,47 @@
+GLOSSARY:
+
+- std::cout is an instance of the std::ostream class
+
+- The << character is the left shift operator overloaded for output operations. 
+It is used for outputting data to the standard output stream, typically the console or terminal. 
+
+- std::endl is a manipulator that represents an end-of-line character ('\n') followed by a flush of the output buffer. 
+It's often used to move the cursor to the next line and ensure that the output is immediately displayed.
+
+In C++ and many other programming languages, output streams like std::cout or file output streams use a buffer to store data before writing it to the actual output destination. 
+This buffering is done for performance reasons, as writing data in small chunks can be slower compared to writing in larger blocks.
+When you flush an output buffer, you ensure that all the data you've written so far is sent to the output destination immediately. 
+There are several ways to trigger a buffer flush:
+
+Automatically on a Newline: 
+- When you print a newline character ('\n') to the output stream, it automatically triggers a flush. 
+This is why you often see text ending with '\n' to ensure that the data is flushed and displayed promptly.
+
+- std::endl: 
+Using std::endl in C++ explicitly inserts a newline character and flushes the buffer. 
+For example, std::cout << "Hello" << std::endl; not only appends a newline but also flushes the buffer.
+
+- std::flush: 
+You can explicitly request a buffer flush without a newline character using std::flush. 
+For example, std::cout << "Hello" << std::flush; would write "Hello" to the output and immediately flush the buffer.
+
+------------------------------------------------------------------------------------------------------------------------------------
+EXAMPLES
+
+1-
+std::cout << "Hello World!\n";
+
+This first line is straightforward. 
+It prints the string "Hello World!" to the standard output (usually the console) and then appends a newline character ('\n') to move to the next line. 
+It doesn't flush the output buffer automatically.
+
+2-
+std::cout << "Hello World!" << std::endl;
+
+The second line is similar but has an additional << std::endl at the end.
+This means that, in addition to printing "Hello World!", it moves to the next line automatically and flushes the output buffer. 
+Flushing the buffer means that any buffered data is immediately written to the output device (console). 
+
+
+This can be useful when you want to ensure that the output is displayed immediately.
+For example, when you want to see the output in a specific order or before some other action.
