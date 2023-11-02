@@ -1,0 +1,14 @@
+To build a C++ program, you need to first certify that you are in the right directory (the directory of the file you're trying to build).
+
+Once there, you can use this command in the terminal:  
+    g++ -o my_program.exe  my_program.cpp
+
+And then, you can run the program by running this other command:
+    ./my_program.exe
+
+Alternatively, you can use a one-liner command to do both things by doing like so:
+    g++ -o my_program.exe  my_program.cpp && ./my_program.exe
+
+In Vscode's c_cpp_properties.json file, you need to add these:
+"compilerPath": "C:\\msys64\\ucrt64\\bin\\g++.exe",
+"intelliSenseMode": "windows-gcc-x64"
