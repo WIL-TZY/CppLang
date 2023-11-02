@@ -1,0 +1,61 @@
+---------- count and cin ---------- 
+
+In C++, `cout` and `cin` are not keywords, functions, nor macros; they are objects. 
+More precisely, they are objects of the C++ Standard Library's `iostream` class. 
+
+1. `cout`:
+   - `cout` stands for "character output stream."
+   - It is an instance of the `ostream` class, which is used for output operations in C++.
+   - You use `cout` to display text or other data on the standard output (usually the console or terminal).
+   - It is associated with the standard output stream, so when you use `cout`, the data is typically displayed on the screen.
+
+2. `cin`:
+   - `cin` stands for "character input stream."
+   - It is an instance of the `istream` class, used for input operations in C++.
+   - You use `cin` to read input from the user through the standard input (usually the keyboard).
+   - It is associated with the standard input stream, so when you use `cin`, it reads data from the keyboard or another input source.
+
+Both `cout` and `cin` are part of the C++ Standard Library and are declared in the `<iostream>` header.
+They provide a convenient and standardized way to perform input and output operations in C++ programs. 
+
+
+While using cout may seem similar to concatenation in other programming languages, it is not quite the same.
+When you use '<<' together with 'cout', you are not performing string concatenation in the typical sense. 
+Instead, you are streaming data to the output stream.
+
+Here's an example of using cout to display output:
+
+#include <iostream>
+
+int main() {
+    int number = 42;
+    std::cout << "The answer to life, the universe, and everything is: " << number << std::endl;
+    return 0;
+}
+In this example, << is used to send both the string and the value of number to cout. 
+The << operator allows you to format and display different types of data.
+
+Concatenation, in contrast, typically involves combining strings together to create a new string. 
+In languages like JavaScript, Python, or PHP, you use the + operator for concatenation, which directly combines strings.
+
+While cout is used for output, it's not a direct string concatenation operation. 
+It is a stream that allows you to output various types of data, including strings and variables, in a formatted manner. 
+It can certainly be used to create a string output that appears as if you've concatenated different elements together, 
+but it's not a dedicated string concatenation operator.
+
+
+------------------- Conventions for Headers in C++ differ from Headers in C -------------------
+Headers like `iostream` in modern C++ no longer use the `.h` terminator because the language standard committee deprecated this convention in favor of more consistent and standardized header names. 
+The older header files, such as `iostream.h`, were used in the original C++ Standard Library but have been replaced in favor of the standardized names without the `.h` extension around 2002.
+
+In modern C++, standard library headers don't have file extensions, and their names are meant to be more consistent with the C++ Standard Library naming conventions. 
+For example:
+
+- `iostream` is used for input and output stream operations.
+- `vector` is used for dynamic arrays.
+- `string` is used for strings.
+- `algorithm` is used for various algorithms and functions.
+- ...
+
+When you include these headers in your code, you simply use `#include <headername>` without the `.h` extension. 
+The compiler and development tools recognize these header names based on the standardized library naming conventions.

@@ -1,0 +1,133 @@
+What is the process of assembling a program?
+
+To analyze how programs work and understand their parts, let's go back to a simple program like the "hello_world" program from Chapter 1:
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+    cout << "Hello World!\n";
+
+    return 0;
+}
+```
+
+Right at the beginning, 'iostream' is equivalent to a header file, named iostream.h, and it is included in the program in this first line. 
+For the compiler, it's as if you had typed the entire content of the iostream.h file at the beginning of the hello_world.cpp.
+
+---------- Examining the first line of the program character by character ----------
+
+```cpp
+#include
+```
+
+The first character is the '#' symbol, which serves as a signal to the preprocessor. 
+The preprocessor's function is to read the source code looking for lines that start with the '#' symbol and, when it finds one, it modifies the code.
+
+So, `#include <iostream>` is an instruction to the preprocessor that basically says the following:
+    "What follows is a file name. Locate the file and read it right now."
+
+The angle brackets (<>) around the file name provide the following information to the preprocessor:
+    "Look for this file in the usual places." 
+
+If your compiler is properly configured, the angle brackets in #include <header> statements instruct preprocessor search for the iostream.h file in the directory that stores the .h files of your compiler.
+For example, <iostream> is resolved to the iostream.h file in the directory where your compiler's header files are stored. The iostream file (input-output-stream) is crucial for the functionality of the 'cout' statement, which sends text to the screen.
+
+For GCC (GNU Compiler Collection) and MinGW (Minimalist GNU for Windows), the header files (.h files) are located in specific directories. 
+The actual location may vary depending on the installation and configuration.
+
+---------- C Headers ---------- 
+The common path for system-wide header files - like those for the C standard library (e.g., stdio.h, stdlib.h) - are:
+For GCC (on Linux): 
+    /usr/include 
+For MinGW (on Windows): 
+    C:\msys64\ENV\include
+    (Here, \ENV\ might be ucrt64, msys64)
+    In this directory, you'll find files from the C Standard Library such as: stdio.h, stdlib.h, strings.h and more.
+    
+    stdfloat, string, coroutine, unordered_map, unordered_set, vector and more.
+
+---------- C++ Headers ---------- 
+The common path for the C++ Standard Library headers are:
+For GCC (on Linux):
+    /usr/include/c++
+For MinGW (on Windows): 
+    C:\msys64\ENV\include\c++\VERSION
+    (Where \VERSION\ corresponds to the GCC version and \ENV\ could be ucrt64 or msys64)
+These header files are designed specifically for C++ programs and will include C++-specific functionality.
+
+---------- Compiler-specific Headers ---------- 
+The files within C:\msys64\ENV\lib\gcc\...\VERSION\include  may appear similar to those from the C Standard Library or the C++ Standard Library. 
+However, this directory houses various header files necessary for the GCC compiler. It is organized based on the target architecture and the version of GCC. 
+
+The common path for the compiler-specific headers are:
+For GCC (on Linux): 
+    /usr/lib/gcc/ARCH/VERSION/include
+For MinGW (on Windows): 
+    C:\msys64\env\lib\gcc\ARCH\VERSION\include
+
+It's worth noting:
+These headers are compiler-specific and used exclusively by the compiler itself, not for building user programs. 
+They often relate to low-level and platform-specific functionality. It's better to leave them alone.
+
+---------- How does the compiler find the right header (.h) file? ----------
+
+The compiler knows which header file to pick based on the order and content of its include paths.
+And in most cases, it will prioritize standard locations and libraries before user-specific directories.
+
+When you include a header file using for example: #include <stdlib.h>, 
+the compiler relies on the order of directories specified in its include paths 
+(specified using the -I option for GCC, for example) to determine which header file to include. 
+
+The compiler searches the directories in the order they are defined in the include paths, and it stops at the first matching header file it finds.
+
+In most cases, the standard library paths, like C:\msys64\ucrt64\include, are included by default in the compiler's search path. 
+This means that if you include <stdlib.h>, the compiler will look in these standard locations for the header file.
+
+
+---------- Conclusion ----------
+
+In practice, this first instruction includes the iostream.h file in the program, as if you had typed it yourself.
+
+
+---------- Examining the rest of the program character by character ----------
+
+After including the header files, the program actually starts with the addition of the `main()` function. 
+All C++ programs have a `main()` function. In general, a function is a block of code that performs one or more actions. 
+Functions are invoked by other functions, but `main()` is special. When your program is initiated, `main()` is called automatically.
+
+The main() function, like all functions, must declare the type of value it will return. 
+Once again, since `main()` is special, it will always return an `int`. 
+The concept of returning a value from a function will be discussed in detail in Chapter 4.
+
+Functions are blocks of code enclosed by an opening brace `{` and closed by a closing brace `}`. 
+Everything between the two braces is considered an integral part of the function.
+
+The keyword 'cout' is used to print text to the screen.
+
+The last two characters, '\n', make 'cout' insert a new line after the words "Hello World!".
+
+Finally, to end the function, we use the 'return' keyword and pass the 0 value. It returns control to the operating system. 
+'0' was a commonly used character for these function terminations. 
+It's a character without value and was frequently used in batch files to signal the success or failure of a program. 
+Nowadays, it's not used as often, and it's preferable for the `main()` function to return `void`.
+
+---------- Functions and Detours ----------
+
+A program is executed line by line in the order it appears in the source code until a function is called.
+Then, the program diverts to execute the function.
+When the function finishes, the program returns control to the point immediately before the function call.
+
+The types of functions indicate the value they return (an int, a float) or return void (empty), which means they don't return anything.
+
+The structure of a function consists of a header and a body.
+
+The header includes the return type, the function's name, and its parameters.
+Function parameters allow external values to be passed to a function. So, if the function were to add two numbers,
+the numbers would be the function's parameters.
+For example:
+
+int sum(int a, int b) {}
