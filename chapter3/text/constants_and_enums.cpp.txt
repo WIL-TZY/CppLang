@@ -1,1 +1,69 @@
+----------- What are Constants? -----------
+
+In C++, constants are values that do not change during the execution of a program. 
+They are used to represent fixed and unchanging data. 
+
+Constants can be of different data types, such as integers, floating-point numbers, characters, and more. 
+There are several ways to declare constants in C++:
+
+Constants are useful for making your code more readable, self-explanatory, and maintainable. 
+They allow you to avoid hard-coding values throughout your program and make it easier to change constant values in one place if needed.
+
 ----------- Constant Literals -----------
+
+Constant literals are fixed values that cannot be changed during the execution of a program. 
+These are also known as "hard-coded" values and are used to represent unchanging data in your code. 
+For example, 'int x = 5' has a constant literal '5', which represents a fixed integer value.
+
+----------- Symbolic Constants -----------
+
+Symbolic constants, on the other hand, are identifiers that represent constant values. 
+They are created using the 'const' keyword or preprocessor directives like '#define' and are used to give meaningful names to constant values. 
+These symbolic constants provide a way to make your code more readable and maintainable by replacing hard-coded values with descriptive names. 
+
+For example:
+    const int MAX_VALUE = 100;
+Here, 'MAX_VALUE' is a symbolic constant representing the maximum value of 100. 
+This makes the code more self-explanatory and allows you to change the constant's value 
+in one place if needed, without searching for every occurrence of the value in your code.
+
+----------- Name Convention for Constants -----------
+
+The most common naming convention for constants in C++ is to use all uppercase letters with underscores (_) to separate words. 
+This convention is often referred to as "SCREAMING_SNAKE_CASE." 
+By using this convention, constants are easily distinguishable from variables and stand out in the code. 
+
+Examples:
+    const double PI = 3.141592;
+    const string ERROR_MESSAGE = "An error occurred.";
+
+By following this convention, it's clear that these identifiers are constants, and the use of uppercase letters enhances their visibility. 
+
+----------- Enumerators -----------
+
+Enumerators, in C++, are a way to define named integral constants as part of an enumeration. 
+They provide a more readable and expressive way to work with constants and improve code clarity.
+
+To declare an enumeration, you use the 'enum' keyword followed by a set of constant names inside curly braces.
+
+Example:
+   enum Color { RED, GREEN, BLUE };
+
+In this example, 'Color' is an enumeration, and 'RED', 'GREEN', and 'BLUE' are the enumerated constants. 
+They are automatically assigned integer values, starting with 0 for the first constant and incrementing by 1 for each subsequent one (unless specified).
+
+Enumerated constants can be used like variables, and they provide meaningful names for constants in your code:
+   Color selectedColor = GREEN;
+
+You can also explicitly assign values to enumerators:
+    enum ErrorCode { 
+        OK = 0, 
+        ERROR_INVALID = 1, 
+        ERROR_NOT_FOUND = 2 
+    };
+
+Last but not least, enumerators are scoped to their enclosing enum type. 
+This means you can have multiple enums with the same enumerator names without conflicts.
+
+Enumerators make your code more self-explanatory and less error-prone compared to using raw integer constants. 
+They enhance code readability and help prevent accidental value assignment errors.
