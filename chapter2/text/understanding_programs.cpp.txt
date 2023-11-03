@@ -15,7 +15,7 @@ int main() {
 }
 ```
 
-Right at the beginning, 'iostream' is equivalent to a header file, named iostream.h, and it is included in the program in this first line. 
+Right at the beginning, 'iostream' is equivalent to a header file (long time ago named iostream.h), and it is included in the program in this first line. 
 For the compiler, it's as if you had typed the entire content of the iostream.h file at the beginning of the hello_world.cpp.
 
 ---------- Examining the first line of the program character by character ----------
@@ -121,13 +121,33 @@ A program is executed line by line in the order it appears in the source code un
 Then, the program diverts to execute the function.
 When the function finishes, the program returns control to the point immediately before the function call.
 
-The types of functions indicate the value they return (an int, a float) or return void (empty), which means they don't return anything.
+The types of functions indicate the value they return (an int, a float) or return 'void' (empty), which means they don't return anything.
 
 The structure of a function consists of a header and a body.
 
-The header includes the return type, the function's name, and its parameters.
+The header includes the return's type, the function's name, and its parameters.
 Function parameters allow external values to be passed to a function. So, if the function were to add two numbers,
 the numbers would be the function's parameters.
 For example:
 
-int sum(int a, int b) {}
+int add(int a, int b) {}
+
+A parameter is a declaration of the type of value that will be passed.
+The actual value passed by the calling function is called an 'argument'.
+Many programmers use these two terms, 'parameters' and 'arguments', interchangeably.
+
+The name of the function and its parameters (which is the header without the return value) is called the 'function signature.'
+    add(int a, int b)
+
+The body of a function consists of an opening brace, zero or more statements, and a closing brace.
+    {
+        cout << "The add() function receives " << x << " and " << y << "\n";
+
+        return (x+y);
+    }
+The statements make up the function's work. A function can directly return a value to main() using a 'return' statement.
+This statement will cause the function to be closed.
+If you do not include a 'return' statement in your function, it will automatically return 'void' at the end of the function.
+The returned value must be of the type declared in the function's header.
+
+That's it for the basics of a C++ program.

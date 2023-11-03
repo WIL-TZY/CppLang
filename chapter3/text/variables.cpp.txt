@@ -1,0 +1,198 @@
+----------- What are variables? -----------
+
+Variables are like named containers that you can use to store and manipulate data.
+It's possible to perform operations, calculations, and assignments with variables to manipulate data in C++ programs.
+Variables and constants provide various ways to work with numbers and other values, which are essential for a program to execute complex tasks.
+
+From a programmer's perspective, a variable is a location in the computer's memory where you can store a value and retrieve it later.
+To understand how variables work, it's important to have a basic understanding of how the computer's memory (RAM) works.
+
+----------- Properties of Variables -----------
+
+1- Memory Address
+Computer memory is measured in bytes and can be understood as a series of cubicles, all placed side by side in a long row. 
+Each cubicle, or memory location, is numbered sequentially. 
+These numbers are called memory addresses, and every variable has one.
+When you run the program, it is loaded into RAM (Random-Access Memory) from the disk file. 
+All variables are also created in RAM. When programmers talk about memory, they are generally referring to RAM.
+
+2- Variable Names
+In addition to addresses, variables have names. 
+For example, you can create a variable called "myAge." 
+Your variable is like a label applied to one of the memory cubicles,
+the purpose of which is to allow easy location without needing to know its actual memory address.
+
+----------- Representation of Memory ------------
+
++----------------+----------------+
+0x7FFFA25A1120   |      (NULL)    |
++----------------+----------------+
+0x7FFFA25A1124   |      (NULL)    |
++----------------+----------------+
+0x7FFFA25A1128   |      (NULL)    | 
++----------------+----------------+
+0x7FFFA25A112C   |       25       | myAge
++----------------+----------------+
+0x7FFFA25A1130   |      (NULL)    |
++----------------+----------------+
+0x7FFFA25A1134   |      (NULL)    |
++----------------+----------------+
+0x7FFFA25A1138   |      (NULL)    |
++----------------+----------------+
+
+3- Data Types
+
+When creating a variable in C++, you must inform the compiler not only of its name but also of the type of information it contains.
+Data types define the kind of data that variables can hold (e.g., integers, floating-point numbers, characters, etc.).
+
+The variable's type informs the compiler of the memory space available for storing the variable's value.
+
+Each memory address (cubicle) is 1 byte.
+If a variable's type has 2 bytes, it will require 2 bytes of memory, or two cubicles.
+
+For instance, if we have a variable of type integer (int), like aforementioned 'myAge', and you want its value to be 25.
+When it is created, it informs the compiler about the memory space reserved for the variable.
+
+Since C++ is a statically-typed language, you must declare the data type of a variable before using it.
+This is important because it helps catch type-related errors at compile time.
+
+----------- Size of Each Data Type -----------
+
+Data Type       | Size on 32-bit (bytes) | Size on 64-bit (bytes)
+--------------- | ---------------------- | ----------------------
+char            | 1                      | 1
+short           | 2                      | 2
+int             | 4                      | 4
+long            | 4                      | 8
+float           | 4                      | 4
+double          | 8                      | 8
+long double     | 12 or 16               | 16
+
+----------- Sign and Unsigned -----------
+
+In C and C++, integer data types can be categorized into two main categories: signed and unsigned. 
+
+These categories determine how the bits of a variable represent numbers and affect the range of values that can be stored.
+Roughly speaking, if a data type is 'signed', it allows positive and negative values.
+If a data type is 'unsigned', it only allows positive values.
+
+IMPORTANT:
+It's important to note that unsigned is ONLY used with integer types or char types, 
+so you wouldn't have types like 'unsigned double' or 'unsigned long double'. 
+Instead, you can have:
+    unsigned short: Typically 2 bytes, just like short.
+    unsigned long: 4 bytes on a 32-bit architecture and 8 bytes on a 64-bit architecture.
+    unsigned int: 4 bytes on both 32-bit and 64-bit architectures.
+
+1.  Signed Data Types:
+    - Most integer data types are signed by default. For example, 'int', and 'char' are signed data types.
+    
+    - Signed data types can represent both positive and negative values. 
+        They use the leftmost bit (the most significant bit) as the sign bit. 
+        If the sign bit is 0, the number is positive; if it's 1, the number is negative.
+   
+   - The range of a signed data type is divided between positive and negative values. 
+        For example, a signed 8-bit integer (char) can represent values from -128 to 127.
+
+
+2.  Unsigned Data Types:
+    - Unsigned data types, as the name suggests, can only represent non-negative (positive or zero) values. 
+        They don't have a sign bit, so all bits represent magnitude.
+    
+    - Because they don't store negative values, unsigned data types have a larger positive range. 
+        An unsigned 8-bit integer (char) can represent values from 0 to 255.
+
+    - An 'unsigned int' can store values like 0, 42, or 255, but it cannot represent negative numbers.
+
+TIP:
+It's essential to choose the appropriate data type for each situation. 
+If you need to represent only non-negative values and want a larger positive range, you can use unsigned data types. 
+If you need to represent both positive and negative values, you can use signed data types.
+
+In most cases nowadays, you simply assert that numeric variables are int - which are signed integers.
+Same thing for short VS int VS long. Nowadays, using 'int' will be good enough.
+That's because with modern compilers, creating an int is equivalent to creating a long int, which will be satisfactory in 99% of cases.
+
+----------- Declaring a Variable -----------
+
+In C++, you can declare a variable by specifying its data type and giving it a name. 
+
+The general syntax for declaring a variable in C++ is:
+    data_type variable_name;
+
+Where 'data_type' should specify the type of data that the variable can hold. 
+It can be any C++ data type, such as 'int', 'double', 'char', 'bool', or custom data types (e.g., classes). 
+The data type determines the size and behavior of the variable.
+
+And the variable_name, as mentioned before, is the name you give to the variable, which allows you to later refer to it in the code. 
+Variable names must follow specific rules and conventions, such as starting with a letter, being case-sensitive, and not using reserved words.
+
+Examples of variable declarations:
+    int age;           // Declares an integer variable named "age"
+    double price;      // Declares a double-precision floating-point variable named "price"
+    char grade;        // Declares a character variable named "grade"
+    bool isStudent;    // Declares a boolean variable named "isStudent"
+
+You can also initialize variables at the time of declaration, like this:
+    int count = 10;        
+    double pi = 3.14159;   
+    char symbol = 'A';     
+    bool isActive = true;  
+
+IMPORTANT!
+Initializing a variable sets its initial value. 
+If you don't provide an initial value, the variable contains garbage data until you assign a value to it.
+
+TIP:
+Remember to give variables meaningful names. 
+This is crucial because it enhances code readability, understanding, and maintainability, reducing errors and facilitating collaboration.
+For example, you could name a variable something like: 'myAge', 'J23qrsnf' or even just 'z'.
+But is important to assess whether that name makes sense within that specific context.
+
+----------- Data Type Float/Double -----------
+
+Floating-point numbers in C++ are a data type used to represent real numbers, which include both integers and fractions. 
+These numbers are stored as approximations in memory, and they are typically used for values that require decimal points or fractions.
+
+There are three primary floating-point data types in C++:
+
+1. float: 
+This is a single-precision floating-point type. 
+It occupies 4 bytes and provides a reasonable level of precision for most applications.
+It is typically used when memory storage is a concern or when higher precision is not necessary.
+
+2. double: 
+This is a double-precision floating-point type. 
+It occupies 8 bytes and offers more significant precision than 'float'. 
+It is the most commonly used floating-point type because it provides a good balance between precision and memory usage.
+
+3. long double: 
+This is an extended-precision floating-point type. 
+It occupies 10 or 12 bytes on most systems (but may vary). 
+It offers even higher precision and is typically used for specialized applications where extreme precision is required.
+
+Floating-point numbers can represent a wide range of values, but they have limitations due to their finite precision. 
+This can result in rounding errors, especially when performing operations that require high precision.
+
+It's essential to be aware of these limitations and use appropriate data types and techniques, such as rounding, 
+when working with floating-point numbers to ensure accurate results in C++ programs.
+
+----------- Data Type Char -----------
+
+The 'char' data type is often used to represent individual characters, such as letters, digits, punctuation marks, or special symbols.
+It is a fundamental data type especially when working with strings and text.
+In such cases, 'char' variables store one byte and are used to store 256 characters
+and symbols from the ASCII and extended ASCII character sets.
+
+In most C++ implementations, a 'char' typically occupies 1 byte of memory, allowing it to represent 8 bits of data. 
+It can store values ranging from 0 to 255 or -128 to 127, depending on whether it's treated as an unsigned or signed character.
+
+The 'char' data type is commonly used to store characters according to the ASCII (American Standard Code for Information Interchange) encoding. 
+Each 'char' value corresponds to a specific character, digit, or symbol based on its ASCII code. 
+For example, 'A' corresponds to the value 65 in ASCII.
+
+How to declare a 'char' variable in C++:
+    char myChar = 'A';
+
+You can perform various operations on `char` variables, such as comparing them, concatenating them to create strings, 
+or using them in control structures for character-based processing.

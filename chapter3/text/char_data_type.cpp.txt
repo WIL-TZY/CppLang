@@ -1,0 +1,24 @@
+It's also important noting that 'char' is also considered an integer type. 
+
+It's a one-byte (8-bit) type that can represent small integer values and characters. 
+A 'char' data type can represent both characters (e.g., 'A', 'B', '1', '2') and numeric values. 
+
+In C and C++, characters are essentially small integers, and the ASCII values of characters are often 
+used in arithmetic operations involving 'char' variables. 
+For example, you can perform addition, subtraction, and other arithmetic operations 
+on 'char' values just like you would with other integer types.
+
+When you treat a 'char' as a character, it is typically signed, and it can represent standard ASCII characters, which range from 0 to 127. 
+However, if you treat a 'char' as a numeric type, it can represent both positive and negative values in the signed form.
+
+For example, here 'charValue' is used to store the character 'A' :
+    char charValue = 'A'; 
+
+But you can also do this:
+    char numericValue = -50;
+Here, 'numericValue' is used to store a signed numeric value.
+
+So, if you want to work specifically with characters, you can simply use 'char', and it is signed by default. 
+If you need to work with numeric values within the range of 0 to 127, you can use 'char' as well. 
+
+If you need a strictly unsigned type for non-negative values, you can use 'unsigned char', whih will give you a range of 0 to 255.

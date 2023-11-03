@@ -2,6 +2,7 @@
 
 using namespace std;
 
+// This function uses two integer parameters and returns an integer value
 int add (int x, int y) {
     cout << "The add() function receives " << x << " and " << y << "\n";
 
