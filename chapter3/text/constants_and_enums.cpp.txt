@@ -17,7 +17,7 @@ For example, 'int x = 5' has a constant literal '5', which represents a fixed in
 
 ----------- Symbolic Constants -----------
 
-Symbolic constants, on the other hand, are identifiers that represent constant values. 
+Symbolic constants, on the other hand, are identifiers that represent constant values. Like variables, symbolic constants are represented by a name.
 They are created using the 'const' keyword or preprocessor directives like '#define' and are used to give meaningful names to constant values. 
 These symbolic constants provide a way to make your code more readable and maintainable by replacing hard-coded values with descriptive names. 
 

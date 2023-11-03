@@ -3,11 +3,15 @@
 using namespace std;
 
 // Does #define MAX = 100 work too?
-#define MAX 100
+#define MAX_VALUE 100
 
 int main() {
-    const int MAX_VALUE = 100;
-    
+    const int STUDENTS_PER_CLASSROOM = 15;
+    int classroom = 5;
+    int students = classroom * STUDENTS_PER_CLASSROOM;
+
+    // Using symbolic constant
+
     // Enumerators
     enum Color { 
         RED,    // = 0
